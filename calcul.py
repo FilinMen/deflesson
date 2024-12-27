@@ -1,12 +1,10 @@
-print('ВВЕДИТЕ ВАШ ПРИМЕР:')
-example = input()
-list_num = []
+
 
 #сложение
 def add(a):
-    for i in range(1, len(list_num)):
-        list_num[0] += list_num[i]
-    return  list_num[0]
+    for i in range(1, len(a)):
+        a[0] += a[i]
+    return  a[0]
 #умножение
 def mul(a):
     for i in range(1, len(list_num)):
@@ -25,12 +23,16 @@ def div(a):
 
 #СТЕПЕНЬ
 def mul(a):
-    for i in range(1, len(list_num)):
-        list_num[0] **= list_num[i]
-    return list_num[0]
+    for i in range(1, len(a)):
+        a[0] **= a[i]
+    return a[0]
 
 
 def main():
+    print('ВВЕДИТЕ ВАШ ПРИМЕР:')
+    example = input()
+    list_num = []
+
     #СЛОЖЕНИЕ
     if '+' in example:
             print('addition')
