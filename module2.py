@@ -7,4 +7,5 @@ def main():
     text_appn = le(text_2)
     print("длина", text_appn)
 
-main()
+if __name__ == '__main__':
+    main()
