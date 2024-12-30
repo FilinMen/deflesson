@@ -1,37 +1,42 @@
 
 
-#сложение
+#СЛОЖЕНИЕ
 def add(a):
     for i in range(1, len(a)):
         a[0] += a[i]
     return  a[0]
-#умножение
+#УМНОЖЕНИЕ
 def mul(a):
-    for i in range(1, len(list_num)):
-        list_num[0] *= list_num[i]
-    return list_num[0]
-#разность 
+    for i in range(1, len(a)):
+        a[0] *= a[i]
+    return a[0]
+#РАЗНОСТЬ 
 def sub(a):
-    for i in range(1, len(list_num)):
-        list_num[0] -= list_num[i]
-    return list_num[0] 
-#деление
+    for i in range(1, len(a)):
+        a[0] -= a[i]
+    return a[0] 
+#ДЕЛЕНИЕ
 def div(a):
-    for i in range(1, len(list_num)):
-        list_num[0] /= list_num[i]
-    return list_num[0]
-
+    for i in range(1, len(a)):
+        a[0] /= a[i]
+    return a[0]
 #СТЕПЕНЬ
-def mul(a):
+def deg(a):
     for i in range(1, len(a)):
         a[0] **= a[i]
     return a[0]
-
-
+#ФАКТОРИАЛ
+def fak(a):
+    start = 1
+    for i in range(1,a):
+        start *= i
+    return start
+#УСЛОВИЯ
 def main():
     print('ВВЕДИТЕ ВАШ ПРИМЕР:')
     example = input()
-    list_num = []
+    a = []
+
 
     #СЛОЖЕНИЕ
     if '+' in example:
@@ -39,53 +44,56 @@ def main():
             example.replace(' ', '') #УДАЛЕНИЕ ПРОБЕЛОВ
             spl_ex = example.split('+')# РАЗДЕЛЕНИЕ ПО ЗНАКУ
             list_ex = spl_ex
-            len(list_ex)
             for i in range(len(list_ex)):
-                list_num.append(float(list_ex[i]))
-            result = add(list_num)
+                a.append(float(list_ex[i]))
+            result = add(a)
     #УМНОЖИТЬ
-    elif '*' in example:
+    elif '*' in example and '**' not in example:
             print('multiply')
             example.replace(' ', '')
             spl_ex = example.split('*')
             list_ex = spl_ex
-            len(list_ex)
             for i in range(len(list_ex)):
-                list_num.append(float(list_ex[i]))
-            result = mul(list_num)
-        #РАЗНОСТЬ
+                a.append(float(list_ex[i]))
+            result = mul(a)
+    #РАЗНОСТЬ
     elif '-' in example:
             print('subtract')
-            spl_ex = example.split('-')
             example.replace(' ', '')
+            spl_ex = example.split('-')
             list_ex = spl_ex
-            len(list_ex)
             for i in range(len(list_ex)):
-                list_num.append(float(list_ex[i]))
-            print(list_num[1])
-            result = sub(list_num)
-        #ДЕЛИТЬ
+                a.append(float(list_ex[i]))
+            print(a[1])
+            result = sub(a)
+    #ДЕЛИТЬ
     elif '/' in example:
             print('subtract')
+            example.replace(' ', '')
             spl_ex = example.split('/')
-            example.replace(' ', '')
             list_ex = spl_ex
-            len(list_ex)
             for i in range(len(list_ex)):
-                list_num.append(float(list_ex[i]))
-            result = div(list_num)
-        #СТЕПЕНЬ
-
-    elif '**' or '^' in example:
+                a.append(float(list_ex[i]))
+            result = div(a)
+    #СТЕПЕНЬ
+    elif '**' in example or '^' in example:
             print('degree')
-            spl_ex = example.split('**')
-            spl_ex = example.split('^')
             example.replace(' ', '')
+            if "**" in example:
+                spl_ex = example.split('**')
+            else:
+                spl_ex = example.split('^')
             list_ex = spl_ex
-            len(list_ex)
             for i in range(len(list_ex)):
-                list_num.append(float(list_ex[i]))
-            result = div(list_num)
+                a.append(float(list_ex[i]))
+            result = deg(a)
+    #ФАКТОРИАЛ
+    elif '!' in example:
+            print('factorial')
+            example.replace(' ', '')
+            spl_ex = example[1:]
+            num_ex = spl_ex
+            result = fak(int(num_ex))
     print(result)
 
 
